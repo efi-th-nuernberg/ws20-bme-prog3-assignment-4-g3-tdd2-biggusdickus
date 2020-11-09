@@ -15,7 +15,7 @@ public class TriangleChecker {
     System.out.println("Geben Sie die Seitenlängen ein.");
     float a = enterFloat(s, "a: ");
     float b = enterFloat(s, "b: ");
-    float c = enterFloat(s, "c: ");
+    float c = enterFloat(s, "c: "); 
     s.close();
     printAnalysis(a, b, c);
   }
