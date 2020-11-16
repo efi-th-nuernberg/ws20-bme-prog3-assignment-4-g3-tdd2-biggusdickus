@@ -15,7 +15,7 @@ public class TriangleChecker {
     System.out.println("Geben Sie die Seitenlängen ein.");
     float a = enterFloat(s, "a: ");
     float b = enterFloat(s, "b: ");
-    float c = enterFloat(s, "c: ");
+    float c = enterFloat(s, "c: "); 
     s.close();
     printAnalysis(a, b, c);
   }
@@ -47,8 +47,30 @@ public class TriangleChecker {
 
   // Analyse der Dreiecksart
   public static TriangleType checkTriangle(float a, float b, float c) {
+    if (triangleLengthsNotNull(a,b,c) && triangleLengthsPossible(a,b,c)) {
+      if (triangleLengthsSame(a,b) && triangleLengthsSame(b,c)) {
+        return TriangleType.EQUILATERAL;
+      }
+      if (triangleLengthsSame(a,b) || triangleLengthsSame(b,c) || triangleLengthsSame(a,c)) {
+        return TriangleType.ISOSCELES;
+      }
+      return TriangleType.NORMAL;
+    }
     return TriangleType.NONE;
   }
 
+  private static boolean triangleLengthsPossible(float a, float b, float c) {
+    if (((a+b) > c) && ((a+b) > c) && ((a+b) > c)) return true;
+    return false;
+  }
 
+  private static boolean triangleLengthsNotNull(float a, float b, float c) {
+    if ((a > 0) && (b > 0) && (c > 0)) return true;
+    return false;
+  }
+
+  private static boolean triangleLengthsSame(float a, float b) {
+    if (a == b) return true;
+    return false;
+  }
 }
