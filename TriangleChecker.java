@@ -15,7 +15,7 @@ public class TriangleChecker {
     System.out.println("Geben Sie die Seitenlängen ein.");
     float a = enterFloat(s, "a: ");
     float b = enterFloat(s, "b: ");
-    float c = enterFloat(s, "c: ");
+    float c = enterFloat(s, "c: "); 
     s.close();
     printAnalysis(a, b, c);
   }
@@ -60,7 +60,7 @@ public class TriangleChecker {
   }
 
   private static boolean triangleLengthsPossible(float a, float b, float c) {
-    if (((a+b) > c) && ((a+b) > c) && ((a+b) > c)) return true;
+    if (((a+b) > c) && ((a+c) > b) && ((b+c) > a)) return true;
     return false;
   }
 
