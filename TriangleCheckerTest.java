@@ -24,7 +24,7 @@ public class TriangleCheckerTest {
     }
 
     @Test
-    public void testIsoscelesTriangle() {
+    public void testIsoscelesTriangleCase1() {
         float a = 5;
         float b = 5;
         float c = 3;
@@ -34,7 +34,47 @@ public class TriangleCheckerTest {
     }
 
     @Test
-    public void testTooLongTriangle() {
+    public void testIsoscelesTriangleCase2() {
+        float a = 3;
+        float b = 5;
+        float c = 5;
+
+        TriangleChecker.TriangleType type = TriangleChecker.checkTriangle(a, b, c);
+        assertEquals(TriangleChecker.TriangleType.ISOSCELES, type);
+    }
+
+    @Test
+    public void testIsoscelesTriangleCase3() {
+        float a = 5;
+        float b = 3;
+        float c = 5;
+
+        TriangleChecker.TriangleType type = TriangleChecker.checkTriangle(a, b, c);
+        assertEquals(TriangleChecker.TriangleType.ISOSCELES, type);
+    }
+
+    @Test
+    public void testTooLongTriangleCase1() {
+        float a = 1000;
+        float b = 3;
+        float c = 3;
+        
+        TriangleChecker.TriangleType type = TriangleChecker.checkTriangle(a, b, c);
+        assertEquals(TriangleChecker.TriangleType.NONE, type);
+    }
+
+    @Test
+    public void testTooLongTriangleCase2() {
+        float a = 3;
+        float b = 1000;
+        float c = 3;
+        
+        TriangleChecker.TriangleType type = TriangleChecker.checkTriangle(a, b, c);
+        assertEquals(TriangleChecker.TriangleType.NONE, type);
+    }
+
+    @Test
+    public void testTooLongTriangleCase3() {
         float a = 3;
         float b = 3;
         float c = 1000;
